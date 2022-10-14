@@ -1,3 +1,5 @@
+/* Color Palette https://coolors.co/palette/040f0f-248232-2ba84a-2d3a3a-fcfffc */
+
 :root{
     font-size: 62.5%;
 }
@@ -10,4 +12,112 @@
 
 body{
     font-family: 'Roboto Mono', monospace;
+}
+
+.header, .input-section{
+    font-size: 1rem;
+    width: 100%;
+
+    padding: 0.8em;
+}
+
+.header{
+    background-color: rgba(45, 58, 58, 1);
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.header__content-container, .input-section{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header__content-container{
+    width: 80%;
+    max-width: 76.8rem;
+
+    margin: 0 auto;
+}
+
+.header__logo{
+    color: white;
+    font-size: 20px;
+
+    margin: 0;
+}
+
+.header__title, .input-section__title{
+    text-align: center;
+    color: white;
+    font-size: 3ch;
+    width: fit-content;
+    height: fit-content;
+
+    margin: 0;
+    padding: 0.2em;
+}
+
+.input-section__input-content-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 42.5rem;
+    height: fit-content;
+
+    margin: 3rem auto 0 auto;
+    padding: 0.8em;
+
+    border-radius: 1rem;
+    background-color: rgba(43, 168, 74, 1);
+}
+
+.input-section__title{
+    font-size: 4ch;
+}
+
+.input-section__input-box{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: fit-content;
+
+    margin: 0 auto;
+    padding: 0.5em;
+    
+    border-radius: 1rem;
+}
+
+.input-section__input, .input-section__input::placeholder, .input-section__button{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2rem;
+}
+
+.input-section__input{
+    text-align: center;
+    width: 80%;
+
+    margin: 0;
+    padding: 0.5em;
+
+    border: 0.1rem solid black;
+    border-radius: 0.3rem;
+}
+
+.input-section__button{
+    color: white;
+
+    margin: 0;
+    padding: 0.5em;
+
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgba(4, 15, 15, 1);
 }
