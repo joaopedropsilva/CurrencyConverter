@@ -14,7 +14,7 @@ body{
     font-family: 'Roboto Mono', monospace;
 }
 
-.header, .input-section{
+.header, .input-section, .footer{
     font-size: 1rem;
     width: 100%;
 
@@ -120,4 +120,19 @@ body{
     border: none;
     border-radius: 0.3rem;
     background-color: rgba(4, 15, 15, 1);
+}
+
+.footer{
+    font-size: 0.6rem;
+    text-align: center;
+
+    background-color: rgba(45, 58, 58, 1);
+}
+
+.footer__copyright{
+    color: white;
+    width: fit-content;
+    height: fit-content;
+
+    padding: 1em;
 }
