@@ -3,21 +3,33 @@
 :root{
     font-size: 62.5%;
 }
+html{
+    height: 100%;
+}
 
 *{
     padding: 0;
     margin: auto;
+
     box-sizing: border-box;
 }
 
 body{
     font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+
+    position: relative;
 }
 
 .header, .input-section, .result-section, .footer{
     font-size: 1rem;
     width: 100%;
 
+    margin: 0;
     padding: 0.8em;
 }
 
@@ -70,7 +82,7 @@ body{
     max-width: 42.5rem;
     height: fit-content;
 
-    margin: 3rem auto 0 auto;
+    margin: 0 auto;
     padding: 0.8em;
 
     border-radius: 1rem;
