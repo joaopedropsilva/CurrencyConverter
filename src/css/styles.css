@@ -182,7 +182,7 @@ body{
     font-size: 28px;
 }
 
-.result-section__currency-name, .result-section__currency-value{
+.result-section__currency-name, .result-section__currency-holder{
     font-size: 1.5ch;
     width: fit-content;
     height: fit-content;
