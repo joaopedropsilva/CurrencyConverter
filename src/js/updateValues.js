@@ -1,5 +1,5 @@
 const currencyDiv = document.querySelector(".result-section__currencies");
-const inputValue = document.querySelector(".input-section__input");
+const inputElement = document.querySelector(".input-section__input");
 const convertButton = document.querySelector(".input-section__button");
 
 let changeStatus = false;
@@ -42,32 +42,32 @@ const getCalculationFactors = async (getResponse, apiURL, changeStatus) => {
   }
 };
 
-const factors = async () => {
-  await getCalculationFactors(getResponse, apiURL, changeStatus);
+const returnFactorsAsPromise = async () => {
+  return await getCalculationFactors(getResponse, apiURL, changeStatus);
 };
 
 // DOM
 
 const changeCurrencyValues = (inputValue, factors, currencies) => {
   for(let index in currencies){
-    currencies[index].value = toString(' ' + (inputValue * factors[index]));
+    currencies[index].value = String(' ' + (inputValue / factors[index]).toFixed(2));
   }
 };
 
-const renderCurrencyElements = (currencies, currencyDiv) => {
+const renderCurrencyElements = (currencyDiv, currencies) => {
+  currencyDiv.innerHTML = '';
   currencies.forEach((currency) => {
     const currencyElement = `
       <div class="result-section__currency-box">
         <ion-icon class="result-section__currency-logo" name="cash-outline"></ion-icon>
         <h2 class="result-section__currency-name">${currency.name}</h2>
-        <h2 class="result-section__currency-holder">${currency.symbol}<span class="result-section__currency-value">${currency.value}</span></h2>
+        <h2 class="result-section__currency-holder">${currency.symbol}<span class="result-section__currency-value"> ${currency.value}</span></h2>
       </div>
     `;
 
     currencyDiv.innerHTML += currencyElement;
   });
 };
-
 
 const getCurrencyValueElements = () => {
   return document.querySelectorAll(".result-section__currency-value");
@@ -85,13 +85,27 @@ const addValuesToCurrencyElements = (changeStatus, currencies) => {
 
 // Events
 
-const handleConvertButtonClick = (event) => {
+const checkValueOnInputBuffer = (inputElement) => {
+  if (inputElement.value) {
+    return true
+  }
+
+  return false
+}
+
+const handleConvertButtonClick = () => {
+  if (checkValueOnInputBuffer(inputElement)) {
+    let factorsPromise = returnFactorsAsPromise();
+
+    factorsPromise.then((factors) => {
+      changeCurrencyValues(parseFloat(inputElement.value), factors, currencies)
+      renderCurrencyElements(currencyDiv, currencies);
+    })
+  }
 };
 
 window.onload = () => {
-  console.log(inputValue.value);
-  renderCurrencyElements(currencies, currencyDiv);
+  renderCurrencyElements(currencyDiv, currencies);
 };
 
-// Add event listeners
 convertButton.addEventListener("click", handleConvertButtonClick);
