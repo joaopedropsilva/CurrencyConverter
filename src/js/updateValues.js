@@ -87,10 +87,10 @@ const addValuesToCurrencyElements = (changeStatus, currencies) => {
 
 const checkValueOnInputBuffer = (inputElement) => {
   if (inputElement.value) {
-    return true
+    return true;
   }
 
-  return false
+  return false;
 }
 
 const handleConvertButtonClick = () => {
@@ -98,7 +98,7 @@ const handleConvertButtonClick = () => {
     let factorsPromise = returnFactorsAsPromise();
 
     factorsPromise.then((factors) => {
-      changeCurrencyValues(parseFloat(inputElement.value), factors, currencies)
+      changeCurrencyValues(parseFloat(inputElement.value), factors, currencies);
       renderCurrencyElements(currencyDiv, currencies);
     })
   }
